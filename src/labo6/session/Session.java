@@ -4,6 +4,7 @@ import labo6.Labo6Main;
 import labo6.Ressources.Gender;
 import labo6.User;
 import labo6.bots.ChatBot;
+import labo6.bots.PatientChatBot;
 import labo6.database.*;
 
 
@@ -36,7 +37,8 @@ public class Session {
 
 	public void start() {
 
-		robot = new ChatBot(human, "Other", getSuitablePictures().random(), Gender.random());
+
+		robot = createChatBot(human, "Other", getSuitablePictures().random(), Gender.random());
 		ui.initBackGround(robot);
 		
 		robot.appendMessage(generateGreeting());
@@ -45,19 +47,21 @@ public class Session {
 
 			robot.sleep(2000);
 
-			if (!human.getUI().getText().equals(oldText)) {
+			/* Modification 7
+			if (!human.getUI().getText().equals(oldText)) {*/
+			if (robot.checkForWakeUp(human.getUI().getText())) {
 
 				robot.appendMessage(generateAnswer());
 				oldText = human.getUI().getText();
 			}
-
 		}
 	}
+
 	/*
 	 * Appel? par le bouton SUIVANT
 	 */
 	public void changeChatBot() {
-		robot = new ChatBot(human, "Other", getSuitablePictures().random(), Gender.random());
+		robot = createChatBot(human, "Other", getSuitablePictures().random(), Gender.random());
 		ui.initBackGround(robot);
 	}
 	
@@ -109,5 +113,8 @@ public class Session {
 		else {
 			throw new IllegalArgumentException("Wrong session type: " + type);
 		}
+	}
+	protected ChatBot createChatBot(User peer, String name, Picture picture, Gender gender) {
+		return new PatientChatBot(peer, name, picture, gender);
 	}
 }

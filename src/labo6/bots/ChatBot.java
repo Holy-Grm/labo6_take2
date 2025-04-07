@@ -4,15 +4,18 @@ import labo6.Ressources.Gender;
 import labo6.User;
 import labo6.database.Picture;
 
-public class ChatBot extends User {
+public abstract class ChatBot extends User {
 
 	//L'utilisateur avec lequel le robot est en communication.
 	private User peer;
+	private String lastText = ""; // Pour SlowmoChatBot
 
 	public ChatBot(User p, String n, Picture pic, Gender g) {
 		super(n, pic, g);
 		peer = p;
 	}
+
+	public abstract boolean checkForWakeUp(String currentText);
 
 	public void sleep(int time) {
 		try {
@@ -30,5 +33,11 @@ public class ChatBot extends User {
 		return peer;
 	}
 
-	
+	protected String getLastText() {
+		return lastText;
+	}
+
+	protected void setLastText(String text) {
+		this.lastText = text;
+	}
 }
