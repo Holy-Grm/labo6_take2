@@ -10,7 +10,7 @@ public class SeductionSession extends Session {
     public SeductionSession(Labo6Main l, User u) {
         super(l, u);
     }
-
+/* La modif 5 nous permet d'omettre ce code
  @Override
  public String generateAnswer() {
      TextList list = TextDatabase.getAllMessages();
@@ -26,11 +26,18 @@ public class SeductionSession extends Session {
      TextMessage msg = list.random();
      return msg.getMessage();
  }
-
+*/
  @Override
  public PictureList getSuitablePictures () {
      PictureList piclist = PictureDatabase.getAllPictures();
      piclist = piclist.keep(Picture.PictureKey.isSeductive, true);
      return piclist;
+ }
+
+ @Override
+ public TextList getSuitableMessages(){
+     TextList textlist = TextDatabase.getAllMessages();
+     textlist = textlist.keep(TextMessage.TextKey.isSeductive, true);
+     return textlist;
  }
 }

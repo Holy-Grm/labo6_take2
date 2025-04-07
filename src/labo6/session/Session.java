@@ -66,18 +66,24 @@ public class Session {
 		return ended;
 	}
 
+	/* On peut retirer ce bloc pour la modif 5 */
 	public String generateAnswer() {
-		TextList list = TextDatabase.getAllMessages();
+		TextList list = getSuitableMessages();
 		list = list.keep(TextMessage.TextKey.isGreeting, false);
 		TextMessage msg = list.random();
 		return msg.getMessage();
 	}
 
 	public String generateGreeting() {
-		TextList list = TextDatabase.getAllMessages();
+		TextList list = getSuitableMessages();
 		list = list.keep(TextMessage.TextKey.isGreeting, true);
 		TextMessage msg = list.random();
 		return msg.getMessage();
+	}
+
+	public TextList getSuitableMessages(){
+		TextList textlist = TextDatabase.getAllMessages();
+		return textlist;
 	}
 
 	public PictureList getSuitablePictures (){

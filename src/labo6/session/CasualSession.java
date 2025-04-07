@@ -10,7 +10,7 @@ public class CasualSession extends Session {
     public CasualSession(Labo6Main l, User u) {
         super(l, u);
     }
-
+/* La modif 5 nous permet d'omettre ce code
     @Override
     public String generateAnswer() {
         TextList list = TextDatabase.getAllMessages();
@@ -25,7 +25,7 @@ public class CasualSession extends Session {
         TextMessage msg = list.random();
         return msg.getMessage();
     }
-
+*/
     @Override
     public PictureList getSuitablePictures () {
         PictureList piclist = PictureDatabase.getAllPictures();
@@ -33,4 +33,10 @@ public class CasualSession extends Session {
         return piclist;
     }
 
+    @Override
+    public TextList getSuitableMessages(){
+        TextList textlist = TextDatabase.getAllMessages();
+        textlist = textlist.keep(TextMessage.TextKey.isSeductive, false);
+        return textlist;
+    }
 }
