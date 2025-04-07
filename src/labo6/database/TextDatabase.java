@@ -50,12 +50,12 @@ public class TextDatabase {
 		TEXT.add("I was feeling a little off today, but you definitely turned me on.", Language.english, true, true,
 				true, false, false, Gender.nonbinary);
 
-		TEXT.add("Salut! Comment ça va?", Language.french, true, false, false, false, true, Gender.nonbinary);
-		TEXT.add("Où sont tes ailes? J'aurais pu jurer que t'étais tombée du ciel...", Language.french, true, false,
+		TEXT.add("Salut! Comment ?a va?", Language.french, true, false, false, false, true, Gender.nonbinary);
+		TEXT.add("O? sont tes ailes? J'aurais pu jurer que t'?tais tomb?e du ciel...", Language.french, true, false,
 				true, false, true, Gender.woman);
-		TEXT.add("Eh bien, regarde qui s'amène...", Language.french, false, false, false, false, true, Gender.nonbinary);
-		TEXT.add("Kess tu veux? Chus occuppé là...", Language.french, true, true, false, false, true, Gender.nonbinary);
-		TEXT.add("Bon, encore une autre personne intéressante avec qui parler...", Language.french, false, false, false, true, true,
+		TEXT.add("Eh bien, regarde qui s'am?ne...", Language.french, false, false, false, false, true, Gender.nonbinary);
+		TEXT.add("Kess tu veux? Chus occupp? l?...", Language.french, true, true, false, false, true, Gender.nonbinary);
+		TEXT.add("Bon, encore une autre personne int?ressante avec qui parler...", Language.french, false, false, false, true, true,
 				Gender.nonbinary);
 		TEXT.add("L'haleine de mon chat sent le Meow Mix.", Language.french, false, false, false, false, false,
 				Gender.nonbinary);
@@ -65,23 +65,23 @@ public class TextDatabase {
 		TEXT.add("Mon chat s'appelle Mistigri.", Language.french, false, false, false, false, false, Gender.nonbinary);
 		TEXT.add("Mes parent refusent que j'utilise les ciseaux.", Language.french, false, false, false, false, false,
 				Gender.nonbinary);
-		TEXT.add("Quand je vais être grand, je veux devenir beta-testeur de jeux vidéo.", Language.french, false, false, false, false,
+		TEXT.add("Quand je vais ?tre grand, je veux devenir beta-testeur de jeux vid?o.", Language.french, false, false, false, false,
 				false, Gender.nonbinary);
-		TEXT.add("J'ai collé ma langue sur la clôture pis je suis resté pris...", Language.french, false, false, false,
+		TEXT.add("J'ai coll? ma langue sur la cl?ture pis je suis rest? pris...", Language.french, false, false, false,
 				false, false, Gender.nonbinary);
-		TEXT.add("Peux-tu m'aider à faire le souper? La recette dit de faire bouillir de l'eau pis je sais pas comment...",
+		TEXT.add("Peux-tu m'aider ? faire le souper? La recette dit de faire bouillir de l'eau pis je sais pas comment...",
 				Language.french, true, false, false, false, false, Gender.nonbinary);
 		TEXT.add("Je ne suis pas photographe, mais je t'imagine dans toutes sortes de poses", Language.french, false, true, true,
 				false, false, Gender.nonbinary);
-		TEXT.add("Es-tu décoratrice d'intérieur? Parce que je sans que je le feng, shui séduit par toi",
+		TEXT.add("Es-tu d?coratrice d'int?rieur? Parce que je sans que je le feng, shui s?duit par toi",
 				Language.french, true, false, true, false, false, Gender.woman);
 		TEXT.add("T'as tu vu l'oeuvre d'art qu'est mon 6-pack?", Language.french, true, false, true, false,
 				false, Gender.woman);
-		TEXT.add("J'ai perdu mon no de téléphone, tu peux me donner le tien?", Language.french, true, false, true, false,
+		TEXT.add("J'ai perdu mon no de t?l?phone, tu peux me donner le tien?", Language.french, true, false, true, false,
 				false, Gender.nonbinary);
 		TEXT.add("As-tu une carte? Je crois que je viens de me perdre dans tes yeux...", Language.french, true, false, true, false, false,
 				Gender.nonbinary);
-		TEXT.add("Mon feu intéreieur s'était éteint jusqu'à ce que tu m'allumes.", Language.french, true, true,
+		TEXT.add("Mon feu int?reieur s'?tait ?teint jusqu'? ce que tu m'allumes.", Language.french, true, true,
 				true, false, false, Gender.nonbinary);
 
 	}

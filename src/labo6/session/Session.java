@@ -5,6 +5,9 @@ import labo6.Ressources.Gender;
 import labo6.User;
 import labo6.bots.ChatBot;
 import labo6.database.PictureDatabase;
+import labo6.database.TextDatabase;
+import labo6.database.TextList;
+import labo6.database.TextMessage;
 
 
 /*
@@ -42,7 +45,7 @@ public class Session {
 
 			if (!human.getUI().getText().equals(oldText)) {
 
-				robot.appendMessage("lol");
+				robot.appendMessage(generateAnswer());
 				oldText = human.getUI().getText();
 			}
 
@@ -66,8 +69,13 @@ public class Session {
 
 	private synchronized boolean hasEnded() {
 		return ended;
-	}	
-	
-	
+	}
+
+	public String generateAnswer() {
+		TextList list = TextDatabase.getAllMessages();
+		list = list.keep(TextMessage.TextKey.isGreeting, false);
+		TextMessage msg = list.random();
+		return msg.getMessage();
+	}
 
 }
