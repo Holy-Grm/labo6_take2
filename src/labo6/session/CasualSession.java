@@ -2,9 +2,7 @@ package labo6.session;
 
 import labo6.Labo6Main;
 import labo6.User;
-import labo6.database.TextDatabase;
-import labo6.database.TextList;
-import labo6.database.TextMessage;
+import labo6.database.*;
 
 public class CasualSession extends Session {
 
@@ -26,6 +24,13 @@ public class CasualSession extends Session {
         list = list.keep(TextMessage.TextKey.isSeductive, false);
         TextMessage msg = list.random();
         return msg.getMessage();
+    }
+
+    @Override
+    public PictureList getSuitablePictures () {
+        PictureList piclist = PictureDatabase.getAllPictures();
+        piclist = piclist.keep(Picture.PictureKey.isSeductive, false);
+        return piclist;
     }
 
 }

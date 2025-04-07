@@ -4,10 +4,7 @@ import labo6.Labo6Main;
 import labo6.Ressources.Gender;
 import labo6.User;
 import labo6.bots.ChatBot;
-import labo6.database.PictureDatabase;
-import labo6.database.TextDatabase;
-import labo6.database.TextList;
-import labo6.database.TextMessage;
+import labo6.database.*;
 
 
 /*
@@ -34,7 +31,7 @@ public class Session {
 
 	public void start() {
 
-		robot = new ChatBot(human, "Other", PictureDatabase.getAllPictures().random(), Gender.random());
+		robot = new ChatBot(human, "Other", getSuitablePictures().random(), Gender.random());
 		ui.initBackGround(robot);
 		
 		robot.appendMessage(generateGreeting());
@@ -50,14 +47,12 @@ public class Session {
 			}
 
 		}
-
 	}
-	
 	/*
 	 * Appel? par le bouton SUIVANT
 	 */
 	public void changeChatBot() {
-		robot = new ChatBot(human, "Other", PictureDatabase.getAllPictures().random(), Gender.random());
+		robot = new ChatBot(human, "Other", getSuitablePictures().random(), Gender.random());
 		ui.initBackGround(robot);
 	}
 	
@@ -83,6 +78,11 @@ public class Session {
 		list = list.keep(TextMessage.TextKey.isGreeting, true);
 		TextMessage msg = list.random();
 		return msg.getMessage();
+	}
+
+	public PictureList getSuitablePictures (){
+		PictureList piclist = PictureDatabase.getAllPictures();
+		return piclist;
 	}
 
 }
