@@ -16,7 +16,7 @@ import labo6.Ressources.Country;
 import labo6.Ressources.Gender;
 import labo6.bots.ChatBot;
 import labo6.session.Session;
-//Je fais un test de github!!!
+
 public class Labo6Main extends JFrame {
 
 	private static final long serialVersionUID = 1L;
