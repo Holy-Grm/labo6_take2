@@ -8,7 +8,7 @@ import labo6.database.TextMessage;
 
 public class SeductionSession extends Session {
 
-//Constructeur
+//Constructeur.
     public SeductionSession(Labo6Main l, User u) {
         super(l, u);
     }

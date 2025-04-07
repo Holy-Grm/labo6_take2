@@ -54,7 +54,7 @@ public class Labo6Main extends JFrame {
 	 */
 	public void startTheRoulette() {
 
-		
+		//
 		while (true) {
 
 			humanUser = new User("Me", userCountry, userGender);
