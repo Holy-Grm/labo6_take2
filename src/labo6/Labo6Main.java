@@ -32,14 +32,9 @@ public class Labo6Main extends JFrame {
 	private Country userCountry = Country.Canada;
 	private Gender userGender = Gender.man;
 	private Session session;
-	
-	private final String NORMAL_SESSION = "normal";
-	private final String SEDUCTION_SESSION = "seduction";
-	private final String CASUAL_SESSION = "casual";
 
-	private String sessionType = NORMAL_SESSION;
+	public String sessionType = Session.NORMAL_SESSION;
 
-	
 
 	public Labo6Main(String[] args) {
 		
@@ -58,27 +53,10 @@ public class Labo6Main extends JFrame {
 
 		//
 		while (true) {
-
 			humanUser = new User("Me", userCountry, userGender);
-			
-			if(sessionType.equals(NORMAL_SESSION)){
-				session = new Session(this,humanUser);
-			}
-			else if(sessionType.equals(SEDUCTION_SESSION)){
-				session = new SeductionSession(this,humanUser);
-			}
-			else if(sessionType.equals(CASUAL_SESSION)){
-				session = new CasualSession(this,humanUser);
-			}
-			else
-			{
-				throw new IllegalArgumentException ("Wrong session type: "+sessionType);
-			}
-			
-			session.start();			
-
+			session = Session.createSession(sessionType, this, humanUser);
+			session.start();
 		}
-
 	}
 
 	/*

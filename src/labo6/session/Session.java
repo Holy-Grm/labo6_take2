@@ -22,6 +22,11 @@ public class Session {
 	private boolean ended;
 	private Thread sleeper;
 
+	public static final String NORMAL_SESSION = "normal";
+	public static final String SEDUCTION_SESSION = "seduction";
+	public static final String CASUAL_SESSION = "casual";
+
+
 	public Session(Labo6Main l, User u) {
 		ui = l;
 		human = u;
@@ -91,4 +96,18 @@ public class Session {
 		return piclist;
 	}
 
+	public static Session createSession (String type, Labo6Main ui, User autre){
+		if (type.equals(NORMAL_SESSION)){
+			return new Session(ui, autre);
+		}
+		else if (type.equals(SEDUCTION_SESSION)){
+			return new SeductionSession(ui, autre);
+		}
+		else if (type.equals(CASUAL_SESSION)){
+			return new CasualSession(ui, autre);
+		}
+		else {
+			throw new IllegalArgumentException("Wrong session type: " + type);
+		}
+	}
 }
