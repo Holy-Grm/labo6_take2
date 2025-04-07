@@ -20,6 +20,12 @@ public class CasualSession extends Session {
         TextMessage msg = list.random();
         return msg.getMessage();
     }
-
+    @Override
+    public String generateGreeting() {
+        TextList list = TextDatabase.getAllMessages();
+        list = list.keep(TextMessage.TextKey.isSeductive, false);
+        TextMessage msg = list.random();
+        return msg.getMessage();
+    }
 
 }

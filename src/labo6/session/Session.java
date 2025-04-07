@@ -37,7 +37,7 @@ public class Session {
 		robot = new ChatBot(human, "Other", PictureDatabase.getAllPictures().random(), Gender.random());
 		ui.initBackGround(robot);
 		
-		robot.appendMessage("Hello there!");
+		robot.appendMessage(generateGreeting());
 		String oldText = human.getUI().getText();
 		while (!hasEnded()) {
 
@@ -74,6 +74,13 @@ public class Session {
 	public String generateAnswer() {
 		TextList list = TextDatabase.getAllMessages();
 		list = list.keep(TextMessage.TextKey.isGreeting, false);
+		TextMessage msg = list.random();
+		return msg.getMessage();
+	}
+
+	public String generateGreeting() {
+		TextList list = TextDatabase.getAllMessages();
+		list = list.keep(TextMessage.TextKey.isGreeting, true);
 		TextMessage msg = list.random();
 		return msg.getMessage();
 	}

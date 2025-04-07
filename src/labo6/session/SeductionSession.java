@@ -21,5 +21,11 @@ public class SeductionSession extends Session {
      return msg.getMessage();
  }
 
-
+ @Override
+ public String generateGreeting() {
+     TextList list = TextDatabase.getAllMessages();
+     list = list.keep(TextMessage.TextKey.isSeductive, true);
+     TextMessage msg = list.random();
+     return msg.getMessage();
+ }
 }
