@@ -3,6 +3,10 @@ package labo6.session;
 import labo6.Labo6Main;
 import labo6.Ressources.Gender;
 import labo6.User;
+import labo6.bots.Behavior.Check.CheckBehavior;
+import labo6.bots.Behavior.Check.CheckBehaviorPatient;
+import labo6.bots.Behavior.Wait.WaitBehavior;
+import labo6.bots.Behavior.Wait.WaitBehaviorAsk;
 import labo6.bots.ChatBot;
 //import labo6.bots.PatientChatBot;
 import labo6.database.*;
@@ -26,7 +30,6 @@ public class Session {
 	public static final String NORMAL_SESSION = "normal";
 	public static final String SEDUCTION_SESSION = "seduction";
 	public static final String CASUAL_SESSION = "casual";
-
 
 	public Session(Labo6Main l, User u) {
 		ui = l;
@@ -121,6 +124,14 @@ public class Session {
 			throw new IllegalArgumentException("Wrong session type: " + type);
 		}
 	}
+// si jveux creer un methode de meme? faut tu que je le fasse abstrait les redefinisse dans casual et seduction
+	public WaitBehavior createWaitBehavior(){
+		return new WaitBehaviorAsk();
+	}
+	public CheckBehavior createCheckBehavior(){
+		return new CheckBehaviorPatient();
+	}
+
 	protected ChatBot createChatBot(User peer, String name, Picture picture, Gender gender) {
 		return new ChatBot(peer, name, picture, gender, createWaitBehavior(), createCheckBehavior());
 	}
