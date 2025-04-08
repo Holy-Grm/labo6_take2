@@ -90,6 +90,13 @@ public class Session {
 		return msg.getMessage();
 	}
 
+	public String generateQuestion() {
+		TextList list = getSuitableMessages();
+		list = list.keep(TextMessage.TextKey.isQuestion, true);
+		TextMessage msg = list.random();
+		return msg.getMessage();
+	}
+
 	public TextList getSuitableMessages(){
 		TextList textlist = TextDatabase.getAllMessages();
 		return textlist;

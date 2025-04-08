@@ -15,4 +15,10 @@ public class SlowmoChatBot extends ChatBot {
         setLastText(currentText);
         return shouldRespond;
     }
+
+    @Override
+    public void waitForUser() {
+        sleep(2000);
+    }
+
 }

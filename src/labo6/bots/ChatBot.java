@@ -3,9 +3,13 @@ package labo6.bots;
 import labo6.Ressources.Gender;
 import labo6.User;
 import labo6.database.Picture;
+import labo6.database.TextDatabase;
+import labo6.database.TextList;
 
 public abstract class ChatBot extends User {
-
+	protected TextList getMessages(){
+		return TextDatabase.getAllMessages();
+	}
 	//L'utilisateur avec lequel le robot est en communication.
 	private User peer;
 	private String lastText = ""; // Pour SlowmoChatBot
@@ -40,4 +44,5 @@ public abstract class ChatBot extends User {
 	protected void setLastText(String text) {
 		this.lastText = text;
 	}
+	public abstract void waitForUser();
 }
