@@ -8,7 +8,7 @@ import labo6.database.Picture;
 import labo6.database.TextDatabase;
 import labo6.database.TextList;
 
-public  class ChatBot extends User {
+public class ChatBot extends User {
 	/* pu besoin de ca, juste a appeler direct TextDatabase.getAllMessages() ducon)
 	protected TextList getMessages(){
 		return TextDatabase.getAllMessages();
@@ -28,8 +28,9 @@ public  class ChatBot extends User {
 		wait=w;
 		check=c;
 	}
-
-	public abstract boolean checkForWakeUp(String currentText);
+	public boolean checkForWakeUp(String currentText){
+		return check.checkForWakeUp(currentText, this);
+	}
 
 	public void sleep(int time) {
 		try {
@@ -47,14 +48,16 @@ public  class ChatBot extends User {
 		return peer;
 	}
 
-	protected String getLastText() {
+	public String getLastText() {
 		return lastText;
 	}
 
-	protected void setLastText(String text) {
+	public void setLastText(String text) {
 		this.lastText = text;
 	}
 	/* on bouge ca dans WaitBehavior*/
-	public abstract void waitForUser();
+	public void waitForUser(){
+		wait.waitForUser(this);
+	}
 
 }

@@ -1,3 +1,5 @@
+/**
+
 package labo6.bots;
 
 import labo6.Ressources;
@@ -9,7 +11,7 @@ import labo6.database.TextMessage;
 
 //seducton
 
-public class ImpatientChatBot extends ChatBot {
+public class ImpatientChatBot { /*extends ChatBot {
     public ImpatientChatBot(User p, String n, Picture pic, Ressources.Gender g) {
         super(p, n, pic, g);
     }
@@ -19,7 +21,7 @@ public class ImpatientChatBot extends ChatBot {
     public boolean checkForWakeUp(String currentText) {
         return !currentText.trim().isEmpty();
     }
-*/
+
     /* on bouge ca dans saySomething
     @Override
     public void waitForUser() {
@@ -27,5 +29,5 @@ public class ImpatientChatBot extends ChatBot {
         TextList list = getMessages();
         appendMessage(list.random().getMessage());
 
-    }*/
-}
+    }
+}*/

@@ -4,7 +4,7 @@ import labo6.Labo6Main;
 import labo6.Ressources.Gender;
 import labo6.User;
 import labo6.bots.ChatBot;
-import labo6.bots.PatientChatBot;
+//import labo6.bots.PatientChatBot;
 import labo6.database.*;
 
 

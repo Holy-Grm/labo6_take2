@@ -1,3 +1,4 @@
+/**
 package labo6.bots;
 
 import labo6.Ressources;
@@ -18,11 +19,12 @@ public class SlowmoChatBot extends ChatBot {
         return shouldRespond;
     }
 
-     */
+
 /* on bouge ca dans nothing
     @Override
     public void waitForUser() {
         sleep(2000);
-    }*/
+    }
 
 }
+*/

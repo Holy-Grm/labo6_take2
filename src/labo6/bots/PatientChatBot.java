@@ -1,3 +1,5 @@
+/**
+ *
 package labo6.bots;
 
 import labo6.Ressources;
@@ -19,7 +21,7 @@ public class PatientChatBot extends ChatBot {
     public boolean checkForWakeUp(String currentText) {
         return currentText.endsWith("?");
     }
-*/
+
 
 /*on bouge ca dans waitbehaviorask
     @Override
@@ -28,6 +30,7 @@ public class PatientChatBot extends ChatBot {
         TextList list = getMessages();
         list = list.keep(TextMessage.TextKey.isQuestion, true);
         appendMessage(list.random().getMessage());
-    }*/
+    }
 
 }
+*/
