@@ -44,5 +44,7 @@ public abstract class ChatBot extends User {
 	protected void setLastText(String text) {
 		this.lastText = text;
 	}
+	/* on bouge ca dans WaitBehavior*/
 	public abstract void waitForUser();
+
 }

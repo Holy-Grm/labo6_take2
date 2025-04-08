@@ -18,6 +18,8 @@ public class PatientChatBot extends ChatBot {
         return currentText.endsWith("?");
     }
 
+
+/*on bouge ca dans waitbehaviorask*/
     @Override
     public void waitForUser() {
         sleep(2000);
@@ -25,4 +27,5 @@ public class PatientChatBot extends ChatBot {
         list = list.keep(TextMessage.TextKey.isQuestion, true);
         appendMessage(list.random().getMessage());
     }
+
 }
