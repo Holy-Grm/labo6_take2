@@ -13,19 +13,21 @@ public class PatientChatBot extends ChatBot {
         super(p, n, pic, g);
     }
 
+
+    /*on bouge ca dans cb patient
     @Override
     public boolean checkForWakeUp(String currentText) {
         return currentText.endsWith("?");
     }
+*/
 
-
-/*on bouge ca dans waitbehaviorask*/
+/*on bouge ca dans waitbehaviorask
     @Override
     public void waitForUser() {
         sleep(2000);
         TextList list = getMessages();
         list = list.keep(TextMessage.TextKey.isQuestion, true);
         appendMessage(list.random().getMessage());
-    }
+    }*/
 
 }

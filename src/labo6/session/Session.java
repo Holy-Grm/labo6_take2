@@ -45,7 +45,7 @@ public class Session {
 		String oldText = human.getUI().getText();
 		while (!hasEnded()) {
 
-			robot.sleep(2000);
+			robot.waitForUser();
 
 			/* Modification 7
 			if (!human.getUI().getText().equals(oldText)) {*/
@@ -122,6 +122,6 @@ public class Session {
 		}
 	}
 	protected ChatBot createChatBot(User peer, String name, Picture picture, Gender gender) {
-		return new PatientChatBot(peer, name, picture, gender);
+		return new ChatBot(peer, name, picture, gender, createWaitBehavior(), createCheckBehavior());
 	}
 }

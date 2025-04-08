@@ -9,6 +9,8 @@ public class SlowmoChatBot extends ChatBot {
         super(p, n, pic, g);
     }
 
+
+    /* On bouge ca dans cb slowmo
     @Override
     public boolean checkForWakeUp(String currentText) {
         boolean shouldRespond = currentText.equals(getLastText());
@@ -16,9 +18,11 @@ public class SlowmoChatBot extends ChatBot {
         return shouldRespond;
     }
 
+     */
+/* on bouge ca dans nothing
     @Override
     public void waitForUser() {
         sleep(2000);
-    }
+    }*/
 
 }

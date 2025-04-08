@@ -5,14 +5,14 @@ import labo6.database.TextDatabase;
 import labo6.database.TextList;
 import labo6.database.TextMessage;
 
-/*
+
 public class WaitBehaviorAsk extends WaitBehavior {
 
     @Override
-    public void waitForUser() {
-        sleep(2000);
-        TextList list = TextMessage.getMessages();
+    public void waitForUser(ChatBot bot) {
+        bot.sleep(2000);
+        TextList list = TextDatabase.getAllMessages();
         list = list.keep(TextMessage.TextKey.isQuestion, true);
-        ChatBot.appendMessage(list.random().getMessage());
+        bot.appendMessage(list.random().getMessage());
     }
-}*/
+}
