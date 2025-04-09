@@ -44,7 +44,7 @@ public class Session {
 
 	public void start() {
 		profiler = createProfiler();
-		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), gender);
+		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), Gender.random());
 		ui.initBackGround(robot);
 
 		robot.appendMessage(profiler.generateGreeting());
