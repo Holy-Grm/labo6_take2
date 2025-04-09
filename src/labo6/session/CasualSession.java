@@ -1,6 +1,9 @@
 package labo6.session;
 
 import labo6.Labo6Main;
+import labo6.Profiler.CasualProfile;
+import labo6.Profiler.NormalProfile;
+import labo6.Profiler.Profiler;
 import labo6.Ressources;
 import labo6.User;
 import labo6.bots.Behavior.Check.CheckBehavior;
@@ -12,6 +15,11 @@ import labo6.bots.Behavior.Wait.WaitBehaviorNothing;
 import labo6.bots.ChatBot;
 //import labo6.bots.SlowmoChatBot;
 import labo6.database.*;
+import labo6.Profiler.Profiler;
+import labo6.Profiler.NormalProfile;
+import labo6.bots.ChatBot;
+
+
 
 public class CasualSession extends Session {
 
@@ -19,6 +27,14 @@ public class CasualSession extends Session {
     public CasualSession(Labo6Main l, User u) {
         super(l, u);
     }
+
+
+    @Override
+    public Profiler createProfiler() {
+
+        return new CasualProfile();
+    }
+
 /* La modif 5 nous permet d'omettre ce code
     @Override
     public String generateAnswer() {
@@ -34,7 +50,7 @@ public class CasualSession extends Session {
         TextMessage msg = list.random();
         return msg.getMessage();
     }
-*/
+*//* dans casualprofile
     @Override
     public PictureList getSuitablePictures () {
         PictureList piclist = PictureDatabase.getAllPictures();
@@ -59,5 +75,5 @@ public class CasualSession extends Session {
     @Override
     protected ChatBot createChatBot(User peer, String name, Picture picture, Ressources.Gender gender) {
         return new ChatBot(peer, name, picture, gender, createWaitBehavior(), createCheckBehavior());
-    }
+    }*/
 }

@@ -16,7 +16,8 @@ public class User {
 	private UserPanel ui;
 	private String name;
 	private Country country=Country.Canada;
-	
+	private Gender gender;
+
 	
 	public User(String n,Picture profilePic,Gender gender){	
 			name=n;			
@@ -52,5 +53,7 @@ public class User {
 	public Country getCountry(){
 		return country;
 	}
+
+	public Gender getGender(){return gender;}
 
 }

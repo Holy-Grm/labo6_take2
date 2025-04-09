@@ -1,6 +1,7 @@
 package labo6.session;
 
 import labo6.Labo6Main;
+import labo6.Ressources;
 import labo6.Ressources.Gender;
 import labo6.User;
 import labo6.bots.Behavior.Check.CheckBehavior;
@@ -10,7 +11,8 @@ import labo6.bots.Behavior.Wait.WaitBehaviorAsk;
 import labo6.bots.ChatBot;
 //import labo6.bots.PatientChatBot;
 import labo6.database.*;
-
+import labo6.Profiler.Profiler;
+import labo6.Profiler.NormalProfile;
 
 /*
  * Cette classe repr?sente une session d'un utilisateur humain
@@ -21,7 +23,7 @@ import labo6.database.*;
 
 public class Session {
 
-	private User human;
+	public User human;
 	private ChatBot robot;
 	private Labo6Main ui;
 	private boolean ended;
@@ -30,6 +32,8 @@ public class Session {
 	public static final String NORMAL_SESSION = "normal";
 	public static final String SEDUCTION_SESSION = "seduction";
 	public static final String CASUAL_SESSION = "casual";
+	public Profiler profiler;
+	public Gender gender;
 
 	public Session(Labo6Main l, User u) {
 		ui = l;
@@ -39,35 +43,37 @@ public class Session {
 	}
 
 	public void start() {
-
-
-		robot = createChatBot(human, "Other", getSuitablePictures().random(), Gender.random());
+		profiler = createProfiler();
+		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), gender);
 		ui.initBackGround(robot);
-		
-		robot.appendMessage(generateGreeting());
+
+		robot.appendMessage(profiler.generateGreeting());
 		String oldText = human.getUI().getText();
 		while (!hasEnded()) {
 
 			robot.waitForUser();
 
-			/* Modification 7
-			if (!human.getUI().getText().equals(oldText)) {*/
 			if (robot.checkForWakeUp(human.getUI().getText())) {
 
-				robot.appendMessage(generateAnswer());
+				robot.appendMessage(profiler.generateAnswer());
 				oldText = human.getUI().getText();
 			}
 		}
+	}
+
+	public Profiler createProfiler() {
+
+		return new NormalProfile();
 	}
 
 	/*
 	 * Appel? par le bouton SUIVANT
 	 */
 	public void changeChatBot() {
-		robot = createChatBot(human, "Other", getSuitablePictures().random(), Gender.random());
+		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), Gender.random());
 		ui.initBackGround(robot);
 	}
-	
+
 
 	public synchronized void end() {
 		ended = true;
@@ -76,38 +82,6 @@ public class Session {
 
 	private synchronized boolean hasEnded() {
 		return ended;
-	}
-
-	/* On peut retirer ce bloc pour la modif 5 */
-	public String generateAnswer() {
-		TextList list = getSuitableMessages();
-		list = list.keep(TextMessage.TextKey.isGreeting, false);
-		TextMessage msg = list.random();
-		return msg.getMessage();
-	}
-
-	public String generateGreeting() {
-		TextList list = getSuitableMessages();
-		list = list.keep(TextMessage.TextKey.isGreeting, true);
-		TextMessage msg = list.random();
-		return msg.getMessage();
-	}
-
-	public String generateQuestion() {
-		TextList list = getSuitableMessages();
-		list = list.keep(TextMessage.TextKey.isQuestion, true);
-		TextMessage msg = list.random();
-		return msg.getMessage();
-	}
-
-	public TextList getSuitableMessages(){
-		TextList textlist = TextDatabase.getAllMessages();
-		return textlist;
-	}
-
-	public PictureList getSuitablePictures (){
-		PictureList piclist = PictureDatabase.getAllPictures();
-		return piclist;
 	}
 
 	public static Session createSession (String type, Labo6Main ui, User autre){
@@ -124,15 +98,53 @@ public class Session {
 			throw new IllegalArgumentException("Wrong session type: " + type);
 		}
 	}
-// si jveux creer un methode de meme? faut tu que je le fasse abstrait les redefinisse dans casual et seduction
+	/*
 	public WaitBehavior createWaitBehavior(){
 		return new WaitBehaviorAsk();
 	}
 	public CheckBehavior createCheckBehavior(){
 		return new CheckBehaviorPatient();
-	}
-
+	}*/
+/* on bouge ca dans profiler
 	protected ChatBot createChatBot(User peer, String name, Picture picture, Gender gender) {
 		return new ChatBot(peer, name, picture, gender, createWaitBehavior(), createCheckBehavior());
 	}
+
+ */
+	/* On peut retirer ce bloc pour la modif 5 */
+	/* on bouge ca dans Profiler
+	public String generateAnswer() {
+
+		TextList list = getSuitableMessages();
+		list = list.keep(TextMessage.TextKey.isGreeting, false);
+		TextMessage msg = list.random();
+		return msg.getMessage();
+	}
+	*/
+/* on bouge ca dans profiler
+	public String generateGreeting() {
+		TextList list = getSuitableMessages();
+		list = list.keep(TextMessage.TextKey.isGreeting, true);
+		TextMessage msg = list.random();
+		return msg.getMessage();
+	}
+*/
+	/* non utilisé
+	public String generateQuestion() {
+		TextList list = getSuitableMessages();
+		list = list.keep(TextMessage.TextKey.isQuestion, true);
+		TextMessage msg = list.random();
+		return msg.getMessage();
+	}
+*/
+	/* rendu dans profiler
+	public TextList getSuitableMessages(){
+		TextList textlist = TextDatabase.getAllMessages();
+		return textlist;
+	}
+
+	public PictureList getSuitablePictures (){
+		PictureList piclist = PictureDatabase.getAllPictures();
+		return piclist;
+	}*/
 }

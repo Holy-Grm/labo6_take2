@@ -1,5 +1,8 @@
 package labo6;
 
+import labo6.database.TextList;
+import labo6.database.TextMessage;
+
 import java.util.Random;
 
 /*
@@ -22,6 +25,7 @@ public class Ressources {
 				
 			return values()[generator.nextInt(values().length)];
 		}
+
 	}
 
 	public enum Country {

@@ -39,11 +39,11 @@ public class ChatBot extends User {
 		} catch (InterruptedException e) {
 		}
 	}
-	
+
 	public void appendMessage(String msg){
 		getUI().appendMessage(msg);
 	}
-	
+
 	public User getPeer(){
 		return peer;
 	}

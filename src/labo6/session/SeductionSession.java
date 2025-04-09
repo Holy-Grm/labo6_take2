@@ -1,6 +1,9 @@
 package labo6.session;
 
 import labo6.Labo6Main;
+import labo6.Profiler.NormalProfile;
+import labo6.Profiler.Profiler;
+import labo6.Profiler.SeductiveProfile;
 import labo6.Ressources;
 import labo6.User;
 import labo6.bots.Behavior.Check.CheckBehavior;
@@ -19,6 +22,14 @@ public class SeductionSession extends Session {
     public SeductionSession(Labo6Main l, User u) {
         super(l, u);
     }
+
+@Override
+public Profiler createProfiler() {
+
+    return new SeductiveProfile();
+}
+
+
 /* La modif 5 nous permet d'omettre ce code
  @Override
  public String generateAnswer() {
@@ -36,6 +47,7 @@ public class SeductionSession extends Session {
      return msg.getMessage();
  }
 */
+    /*
  @Override
  public PictureList getSuitablePictures () {
      PictureList piclist = PictureDatabase.getAllPictures();
@@ -60,5 +72,5 @@ public class SeductionSession extends Session {
     @Override
     protected ChatBot createChatBot(User peer, String name, Picture picture, Ressources.Gender gender) {
         return new ChatBot(peer, name, picture, gender, createWaitBehavior(), createCheckBehavior());
-    }
+    }*/
 }
