@@ -43,7 +43,7 @@ public class Session {
 	}
 
 	public void start() {
-		profiler = createProfiler();
+		profiler = createProfiler(peer);
 		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), Gender.random());
 		ui.initBackGround(robot);
 
@@ -61,9 +61,9 @@ public class Session {
 		}
 	}
 
-	public Profiler createProfiler() {
+	public Profiler createProfiler(User peer) {
 
-		return new NormalProfile();
+		return new NormalProfile(peer);
 	}
 
 	/*

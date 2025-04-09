@@ -14,8 +14,8 @@ import labo6.database.TextDatabase;
 
 public class NormalProfile extends Profiler {
 
-    public NormalProfile() {
-        super();
+    public NormalProfile(User peer) {
+        super(peer);
     }
 
     public TextList getSuitableMessages(){

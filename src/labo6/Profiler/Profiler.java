@@ -12,6 +12,10 @@ import labo6.database.TextMessage;
 
 public abstract class Profiler {
 
+    Profiler(User peer) {
+        human=peer;
+    }
+    User human;
 
     public abstract PictureList getSuitablePictures();
     public abstract TextList getSuitableMessages();
@@ -39,22 +43,9 @@ public abstract class Profiler {
         return msg.getMessage();
     }
 
-/*
+
 	public Ressources.Gender getSuitableGender(){
-		if(human.getGender() == Ressources.Gender.man)
-		{
-			gender = Ressources.Gender.man;
-		}
 
-		else if (human.getGender() == Ressources.Gender.woman)
-		{
-			gender = Ressources.Gender.woman;
-		}
-		else {
-			gender = Ressources.Gender.nonbinary;
-
-		}
-		return gender;
-	}*/
+		return human.getGender();	}
 
 }

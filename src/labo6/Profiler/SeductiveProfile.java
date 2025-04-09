@@ -1,5 +1,6 @@
 package labo6.Profiler;
 
+import labo6.Ressources;
 import labo6.User;
 import labo6.bots.Behavior.Check.CheckBehavior;
 import labo6.bots.Behavior.Check.CheckBehaviorImpatient;
@@ -10,8 +11,8 @@ import labo6.database.*;
 public class SeductiveProfile extends Profiler {
 
 
-    public SeductiveProfile() {
-        super();
+    public SeductiveProfile(User peer) {
+        super(peer);
     }
 
     public PictureList getSuitablePictures () {
@@ -31,5 +32,24 @@ public class SeductiveProfile extends Profiler {
     }
     public CheckBehavior createCheckBehavior(){
         return new CheckBehaviorImpatient();
+    }
+
+@Override
+    public Ressources.Gender getSuitableGender(){
+        Ressources.Gender gender;
+        if(human.getGender() == Ressources.Gender.man)
+        {
+            gender = Ressources.Gender.woman;
+        }
+
+        else if (human.getGender() == Ressources.Gender.woman) //faire une boucle
+        {
+            gender = Ressources.Gender.man;
+        }
+        else {
+            gender = Ressources.Gender.nonbinary; // a mettre random
+
+        }
+        return gender;
     }
 }

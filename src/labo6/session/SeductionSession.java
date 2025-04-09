@@ -26,7 +26,7 @@ public class SeductionSession extends Session {
 @Override
 public Profiler createProfiler() {
 
-    return new SeductiveProfile();
+    return new SeductiveProfile(peer);
 }
 
 

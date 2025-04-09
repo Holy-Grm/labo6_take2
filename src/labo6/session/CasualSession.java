@@ -32,7 +32,7 @@ public class CasualSession extends Session {
     @Override
     public Profiler createProfiler() {
 
-        return new CasualProfile();
+        return new CasualProfile(peer);
     }
 
 /* La modif 5 nous permet d'omettre ce code

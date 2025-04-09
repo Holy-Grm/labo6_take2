@@ -10,8 +10,8 @@ import labo6.database.*;
 
 public class CasualProfile extends Profiler {
 
-    public CasualProfile() {
-        super();
+    public CasualProfile(User peer) {
+        super(peer);
     }
 
     public PictureList getSuitablePictures () {
