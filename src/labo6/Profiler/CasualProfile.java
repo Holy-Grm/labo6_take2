@@ -16,13 +16,13 @@ public class CasualProfile extends Profiler {
 
     public PictureList getSuitablePictures () {
         Ressources.Country human = getHumanCountry();
+
         PictureList piclist = PictureDatabase.getAllPictures();
         piclist = piclist.keep(Picture.PictureKey.isSeductive, false);
         if (human == Ressources.Country.Japan)
         {
             piclist = piclist.keep(Picture.PictureKey.isComic, true);
         }
-
         return piclist;
     }
 
