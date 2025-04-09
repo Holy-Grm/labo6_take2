@@ -7,6 +7,7 @@ import labo6.bots.Behavior.Check.CheckBehaviorImpatient;
 import labo6.bots.Behavior.Wait.WaitBehavior;
 import labo6.bots.Behavior.Wait.WaitBehaviorSaySomething;
 import labo6.database.*;
+import labo6.Ressources.Country;
 
 public class SeductiveProfile extends Profiler {
 
@@ -16,14 +17,28 @@ public class SeductiveProfile extends Profiler {
     }
 
     public PictureList getSuitablePictures () {
+        Ressources.Country human = getHumanCountry();
         PictureList piclist = PictureDatabase.getAllPictures();
         piclist = piclist.keep(Picture.PictureKey.isSeductive, true);
+        if (human == Country.Japan)
+        {
+            piclist = piclist.keep(Picture.PictureKey.isComic, true);
+        }
         return piclist;
     }
 
     public TextList getSuitableMessages(){
+        Ressources.Country human = getHumanCountry();
         TextList textlist = TextDatabase.getAllMessages();
         textlist = textlist.keep(TextMessage.TextKey.isSeductive, true);
+        if (human == Country.France || human == Country.Quebec)
+        {
+            textlist = textlist.keep(TextMessage.TextKey.language, TextMessage.Language.french);
+        }
+        if (human == Country.Japan || human == Country.Canada)
+        {
+            textlist = textlist.keep(TextMessage.TextKey.language, TextMessage.Language.english);
+        }
         return textlist;
     }
 

@@ -15,14 +15,31 @@ public class CasualProfile extends Profiler {
     }
 
     public PictureList getSuitablePictures () {
+        Ressources.Country human = getHumanCountry();
         PictureList piclist = PictureDatabase.getAllPictures();
         piclist = piclist.keep(Picture.PictureKey.isSeductive, false);
+        if (human == Ressources.Country.Japan)
+        {
+            piclist = piclist.keep(Picture.PictureKey.isComic, true);
+        }
+
         return piclist;
     }
 
     public TextList getSuitableMessages(){
+        Ressources.Country human = getHumanCountry();
+
         TextList textlist = TextDatabase.getAllMessages();
         textlist = textlist.keep(TextMessage.TextKey.isSeductive, false);
+
+        if (human == Ressources.Country.France || human == Ressources.Country.Quebec)
+        {
+            textlist = textlist.keep(TextMessage.TextKey.language, TextMessage.Language.french);
+        }
+        if (human == Ressources.Country.Japan || human == Ressources.Country.Canada)
+        {
+            textlist = textlist.keep(TextMessage.TextKey.language, TextMessage.Language.english);
+        }
         return textlist;
     }
 

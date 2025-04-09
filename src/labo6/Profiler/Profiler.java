@@ -51,7 +51,7 @@ public abstract class Profiler {
 
 		return human.getGender();	}
 
-    public Ressources.Country getSuitableCountry(){
+    public Ressources.Country getHumanCountry(){
         return human.getCountry();
     }
 
