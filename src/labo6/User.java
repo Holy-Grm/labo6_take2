@@ -27,7 +27,8 @@ public class User {
 	public User(String n,Country c,Gender gender){	
 		name=n;	
 		country=c;
-		ui = new UserPanel(name,Ressources.flagImages[c.value],Ressources.genderIcons[gender.value]);		
+		ui = new UserPanel(name,Ressources.flagImages[c.value],Ressources.genderIcons[gender.value]);
+		this.gender = gender;
 }
 	
 	public UserPanel getUI(){

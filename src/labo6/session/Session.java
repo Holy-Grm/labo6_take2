@@ -43,8 +43,9 @@ public class Session {
 	}
 
 	public void start() {
-		profiler = createProfiler(peer);
-		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), Gender.random());
+		profiler = createProfiler(human);
+	//	robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), Gender.random());
+		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), profiler.getSuitableGender());
 		ui.initBackGround(robot);
 
 		robot.appendMessage(profiler.generateGreeting());
@@ -70,7 +71,7 @@ public class Session {
 	 * Appel? par le bouton SUIVANT
 	 */
 	public void changeChatBot() {
-		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), Gender.random());
+		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), profiler.getSuitableGender());
 		ui.initBackGround(robot);
 	}
 

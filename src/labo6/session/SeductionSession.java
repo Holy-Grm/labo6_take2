@@ -23,10 +23,10 @@ public class SeductionSession extends Session {
         super(l, u);
     }
 
-@Override
+//@Override
 public Profiler createProfiler() {
 
-    return new SeductiveProfile(peer);
+    return new SeductiveProfile(human);
 }
 
 

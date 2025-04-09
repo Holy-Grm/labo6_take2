@@ -29,10 +29,10 @@ public class CasualSession extends Session {
     }
 
 
-    @Override
+    //@Override
     public Profiler createProfiler() {
 
-        return new CasualProfile(peer);
+        return new CasualProfile(human);
     }
 
 /* La modif 5 nous permet d'omettre ce code

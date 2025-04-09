@@ -11,11 +11,14 @@ import labo6.bots.ChatBot;
 import labo6.database.TextMessage;
 
 public abstract class Profiler {
+    User human;
 
     Profiler(User peer) {
+
         human=peer;
     }
-    User human;
+
+
 
     public abstract PictureList getSuitablePictures();
     public abstract TextList getSuitableMessages();
