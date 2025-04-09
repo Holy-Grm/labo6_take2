@@ -66,7 +66,6 @@ public class Session {
 	}
 
 	public Profiler createProfiler(User peer) {
-
 		return new NormalProfile(peer);
 	}
 

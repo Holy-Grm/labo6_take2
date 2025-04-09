@@ -29,8 +29,8 @@ public class CasualSession extends Session {
     }
 
 
-    //@Override
-    public Profiler createProfiler() {
+    @Override
+    public Profiler createProfiler(User peer) {
 
         return new CasualProfile(human);
     }
