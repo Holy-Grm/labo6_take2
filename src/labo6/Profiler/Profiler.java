@@ -25,8 +25,8 @@ public abstract class Profiler {
     public abstract WaitBehavior createWaitBehavior();
     public abstract CheckBehavior createCheckBehavior();
 
-    //public ChatBot createChatBot(User peer, String name, Picture picture, Ressources.Gender gender) {
     public ChatBot createChatBot(User peer, String name, Picture picture, Ressources.Gender gender) {
+    //public ChatBot createChatBot(User peer, String name, Picture picture, Ressources.Gender gender) {
 
         return new ChatBot(peer, name, picture, gender, createWaitBehavior(), createCheckBehavior());
     }

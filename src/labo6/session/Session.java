@@ -43,13 +43,15 @@ public class Session {
 	}
 
 	public void start() {
-		profiler = createProfiler(human);
-	//	robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), Gender.random());
+		Profiler profiler = createProfiler(human);
+	//	robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), Gender.random()); // modif 10
 		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), profiler.getSuitableGender());
+	//	robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random());
+
 		ui.initBackGround(robot);
 
 		robot.appendMessage(profiler.generateGreeting());
-		String oldText = human.getUI().getText();
+		//String oldText = human.getUI().getText();
 		while (!hasEnded()) {
 
 			robot.waitForUser();
@@ -57,7 +59,8 @@ public class Session {
 			if (robot.checkForWakeUp(human.getUI().getText())) {
 
 				robot.appendMessage(profiler.generateAnswer());
-				oldText = human.getUI().getText();
+				//oldText = human.getUI().getText();
+				human.getUI().getText();
 			}
 		}
 	}
@@ -71,7 +74,10 @@ public class Session {
 	 * Appel? par le bouton SUIVANT
 	 */
 	public void changeChatBot() {
+		Profiler profiler = createProfiler(human);
 		robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random(), profiler.getSuitableGender());
+	//	robot = profiler.createChatBot(human, "Other", profiler.getSuitablePictures().random());
+
 		ui.initBackGround(robot);
 	}
 

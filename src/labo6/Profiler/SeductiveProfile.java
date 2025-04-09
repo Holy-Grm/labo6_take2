@@ -39,17 +39,50 @@ public class SeductiveProfile extends Profiler {
         Ressources.Gender gender;
         if(human.getGender() == Ressources.Gender.man)
         {
+            if (Math.random() < 0.5) {
+                gender = Ressources.Gender.woman;
+            } else {
+                gender = Ressources.Gender.nonbinary;
+            }
+        }
+
+        else if (human.getGender() == Ressources.Gender.woman)
+        {
+            if (Math.random() < 0.5) {
+                gender = Ressources.Gender.man;
+            } else {
+                gender = Ressources.Gender.nonbinary;
+            }
+        }
+
+        else {
+            if (Math.random() < 0.5) {
+                gender = Ressources.Gender.man;
+            } else {
+                gender = Ressources.Gender.woman;
+            }
+        }
+        return gender;
+    }
+
+    /* Version qui ne tien pas compte des non binary
+
+    @Override
+    public Ressources.Gender getSuitableGender(){
+        Ressources.Gender gender;
+        if(human.getGender() == Ressources.Gender.man)
+        {
             gender = Ressources.Gender.woman;
         }
 
-        else if (human.getGender() == Ressources.Gender.woman) //faire une boucle
+        else if (human.getGender() == Ressources.Gender.woman)
         {
             gender = Ressources.Gender.man;
         }
         else {
-            gender = Ressources.Gender.nonbinary; // a mettre random
+            gender = Ressources.Gender.nonbinary;
 
         }
         return gender;
-    }
+    }*/
 }
